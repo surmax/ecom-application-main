@@ -1,7 +1,7 @@
 <template>
-    <div class="column is-2">
+    <div class="column is-3">
         <div id='black-box' class="box has-background-dark">
-            <figure class="image mb-8">
+            <figure class="image mb-4">
                 <img id='image' v-bind:src="product.get_thumbnail">                 
             </figure>
             <div> 
@@ -28,14 +28,24 @@ export default {
 <style scoped>
  #black-box {
     height:100%;
+    width: 100%;
+    max-width: max-content;
  }
  #image {
-    height: 25rem;
-    /* width: auto; */
+    height: 15rem;
+    
  }
+ /* .column3{
+    flex: none;
+    width: 15%;
+  } */
   .image {
     margin-top: -1.25rem;
     margin-left: -1.25rem;
     margin-right: -1.25rem;
+    height: 15rem;
   }
+
+
+  
 </style>

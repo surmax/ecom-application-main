@@ -1,7 +1,7 @@
 <template>
   <nav class="breadcrumb" aria-label="breadcrumbs">
     <ul>
-      <li><router-link to="/">Boutique</router-link></li>
+      <li><router-link to="/">Amcart</router-link></li>
       <li><a href="#">Categories</a></li>
       <li class="is-active"><a href="#" aria-current="page">{{ category.name }}</a></li>
     </ul>
@@ -10,7 +10,7 @@
   <div class="page-category">
     <div class="column is-multiline">
       <div class="column is-12">
-        <h2 class="is-size-2 has-text-centered">{{ category.name }}</h2>
+        <!-- <h2 class="is-size-2 has-text-centered">{{ category.name }}</h2> -->
       </div>
 
       <div class="columns is-multiline">

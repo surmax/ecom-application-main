@@ -1,7 +1,7 @@
 <template>
   <nav class="breadcrumb" aria-label="breadcrumbs">
     <ul>
-      <li><router-link to="/">Boutique</router-link></li>
+      <li><router-link to="/">Amcart</router-link></li>
       <li><router-link to="/cart">Cart</router-link></li>
       <li class="is-active"><a href="#" aria-current="page">Checkout</a></li>
     </ul>
@@ -134,7 +134,7 @@ export default {
     }
   },
   mounted() {
-    document.title = 'Checkout | Boutique'
+    document.title = 'Checkout | Amcart'
     this.cart = this.$store.state.cart
     const acc_tok = localStorage.getItem('authToken')
     if (acc_tok) {

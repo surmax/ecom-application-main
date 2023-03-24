@@ -13,21 +13,21 @@ jQuery(document).ready(function($) {
 	    center: false,
 	    items: 1,
 	    loop: false,
-			stagePadding: 15,
-	    margin: 20,
+			stagePadding: 2,
+	    margin: 2,
 	    nav: true,
 			navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'],
 	    responsive:{
         600:{
-        	margin: 20,
+        	margin: 2,
           items: 2
         },
         1000:{
-        	margin: 20,
+        	margin: 2,
           items: 3
         },
         1200:{
-        	margin: 20,
+        	margin: 2,
           items: 3
         }
 	    }
@@ -152,14 +152,14 @@ jQuery(document).ready(function($) {
     $( "#slider-range" ).slider({
       range: true,
       min: 0,
-      max: 500,
-      values: [ 75, 300 ],
+      max: 1000,
+      values: [ 100, 600 ],
       slide: function( event, ui ) {
-        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+        $( "#amount" ).val( "Rs " + ui.values[ 0 ] + " - Rs " + ui.values[ 1 ] );
       }
     });
-    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+    $( "#amount" ).val( "Rs " + $( "#slider-range" ).slider( "values", 0 ) +
+      " - Rs " + $( "#slider-range" ).slider( "values", 1 ) );
 	};
 	siteSliderRange();
 

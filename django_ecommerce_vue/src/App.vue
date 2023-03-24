@@ -4,7 +4,7 @@
       <div class="navbar-brand">
         <router-link to="/" class="navbar-item">
           <img src="../public/boutique-logo.png" type="image" alt="logo">
-          <strong style="padding-left: 5px">  BOUTIQUE</strong>
+          <strong style="padding-left: 5px">  AMCART</strong>
         </router-link>
 
         <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu" @click="showMobileMenu = !showMobileMenu">
@@ -40,7 +40,7 @@
               <router-link to="/men" class="navbar-item">Men</router-link>
               <router-link to="/women" class="navbar-item">Women</router-link>
               <hr class="navbar-divider">
-              <router-link to="/about-me" class="navbar-item">About me</router-link>
+              <router-link to="/about-me" class="navbar-item">Contact</router-link>
             </div>
           </div>
 
@@ -52,8 +52,9 @@
 
             <div class="navbar-item">
               <router-link to="/cart" class="button is-info">
-                <span>Cart ({{ cartTotalLength }})</span>
-                <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                <!-- <span>Cart </span>
+                <span class="icon"><i class="fas fa-shopping-cart"></i></span> -->
+                Cart
               </router-link>
             </div>
             <button @click="executeSignOutOrSignIn()" class="button is-primary">{{isAuthenticated ? 'Logout' : 'SignUp / LogIn'}}</button>
@@ -67,20 +68,20 @@
       <div class="lds-dual-ring"></div>
     </div>
 
-    <section class="section">
+    <div class="section">
       <router-view/>
-    </section>
+    </div>
 
-    <footer class="footer">
-      <p class="has-text-centered has-text-grey">Designed for NAGP purpose</p>
-      <p class="has-text-centered has-text-grey">2023</p>
-    </footer>
+    <div class="site-wrap">     
+     <my-footer></my-footer>
+   </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import * as Msal from 'msal';
+import Footer from './components/Footer';
 
 export  default {
   created() {
@@ -122,6 +123,10 @@ export  default {
         axios.defaults.headers.common['Authorization'] = ""
     }
   },
+  components:{
+ 
+ 'my-footer':Footer
+},
   mounted() {
     this.cart = this.$store.state.cart
   },
@@ -130,7 +135,7 @@ export  default {
       const msalConfig = {
         auth: {
           clientId: '129b8bc7-de59-4904-bad3-1268f299e8d0',
-          redirectUri: 'http://localhost:8081',//'https://ecommvue.z29.web.core.windows.net/',
+          redirectUri: 'https://ecommvue.z29.web.core.windows.net/',
           authority: 'https://NAGPecommB2c.b2clogin.com/NAGPecommB2c.onmicrosoft.com/B2C_1_SignupSignin',
           knownAuthorities: ['NAGPecommB2c.b2clogin.com'],
           navigateToLoginRequestUrl: true
@@ -183,7 +188,7 @@ export  default {
 </script>
 
 <style lang="scss">
-@import '../node_modules/bulma';
+@import '../public/template/bulma';
 
 .lds-dual-ring {
   display: inline-block;
@@ -193,10 +198,10 @@ export  default {
 .lds-dual-ring:after {
   content: " ";
   display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  margin: 4px;
+  border-radius: 30%;
   border: 6px solid #ccc;
   border-color: #ccc transparent #ccc transparent;
   animation: lds-dual-ring 1.2s linear infinite;
@@ -212,10 +217,17 @@ export  default {
 .is-loading-bar {
   height: 0;
   overflow: hidden;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
   &.is-loading {
     height: 80px;
   }
+}
+
+.section {
+  margin-top: 0%;
+  padding: 0%;
+  margin: 0%;
+  margin-left: 0%;
 }
 </style>

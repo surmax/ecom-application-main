@@ -1,7 +1,7 @@
 <template>
   <nav class="breadcrumb" aria-label="breadcrumbs">
     <ul>
-      <li><router-link to="/">Boutique</router-link></li>
+      <li><router-link to="/">Amcart</router-link></li>
       <li class="is-active"><a href="#" aria-current="page">My account</a></li>
     </ul>
   </nav>
@@ -66,7 +66,7 @@ export default {
     }
   },
   mounted() {
-    document.title = 'My account | Boutique'
+    document.title = 'My account | Amcart'
 
     this.getMyOrders()
     this.getUserInfo()

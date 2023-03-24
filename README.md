@@ -1,10 +1,10 @@
 <h1 align="center">Django + Vue E-Commerce Store</h1>
 
 <p align="center">
-<img src="readme_assets\1.png" alt="Boutique HomePage">
+<img src="readme_assets\1.png" alt="Amcart HomePage">
 </p>
 
-<h2 align="center"><a  href="https://boutique-django.herokuapp.com/">Live Demo</a></h2>
+<h2 align="center"><a  href="https://Amcart-django.herokuapp.com/">Live Demo</a></h2>
 <b>tip:</b> because of the heroku server, if the website doesn't show up, <b>change your IP address.</b>
 
 ## Description
@@ -14,7 +14,7 @@
 </p>
 Hi everyone!
 
-Boutique is an online clothing store that you can register to it, view and buy products.
+Amcart is an online clothing store that you can register to it, view and buy products.
 The purpose of this project for me, was to test my Django and Web Development skills.
 I use django for the backend and Django Rest Framework for the APIs.
 Authentication system is handled by Djoser.

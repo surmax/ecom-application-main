@@ -16,10 +16,10 @@
     data() {
       return {
         images: [
-        require('@/assets/images/fashion/slider/1.jpg'),
-        require('@/assets/images/fashion/slider/2.jpg'),
-        require('@/assets/images/fashion/slider/3.jpg'),
-        require('@/assets/images/fashion/slider/4.jpg')
+        require('@/assets/1.jpg'),
+        require('@/assets/2.jpg'),
+        require('@/assets/3.jpg')
+        
           ],
         timer: null,
         currentIndex: 0,
@@ -74,7 +74,9 @@
   
   img {
   height:300px;
-  width:100%
+  width:100%;
+  margin-top: 0%;
+  margin-left: 0%;
     }
   
   .prev, .next {
@@ -82,7 +84,7 @@
     position: absolute;
     top: 1%;
     width: auto;
-    padding: 5px;
+    padding: 0px;
     color: black;
     font-weight: bold;
     font-size: 18px;

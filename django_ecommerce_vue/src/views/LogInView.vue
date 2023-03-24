@@ -1,7 +1,7 @@
 <template>
   <nav class="breadcrumb" aria-label="breadcrumbs">
     <ul>
-      <li><router-link to="/">Boutique</router-link></li>
+      <li><router-link to="/">Amcart</router-link></li>
       <li class="is-active"><a href="#" aria-current="page">Log in</a></li>
     </ul>
   </nav>

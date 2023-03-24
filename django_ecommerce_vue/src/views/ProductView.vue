@@ -1,7 +1,7 @@
 <template>
   <nav class="breadcrumb" aria-label="breadcrumbs">
     <ul>
-      <li><router-link to="/">Boutique</router-link></li>
+      <li><router-link to="/">Amcart</router-link></li>
       <li><a href="#">Products</a></li>
       <li class="is-active"><a href="#" aria-current="page">{{ product.name }}</a></li>
     </ul>
@@ -10,21 +10,59 @@
 <div class="page-product">
   <div class="columns is-multiline">
     <div class="column is-half">
-      <figure class="image mb-6">
+      <figure class="product-image">
         <img v-bind:src="product.get_image">
       </figure>
     </div>
 
     <div class="column is-one-quarter">
       <div class="information is my-6 pb-6">
-        <h2 class="subtitle">Information</h2>
+        <h1 class="subtitle">Product Details</h1>
 
-        <h1 class="title">{{ product.name }}</h1>
+        <h1 class="title">  </h1>
+
+        <h3 class="title">{{ product.name }}</h3>
+
+         
 
         <p>{{ product.description }}</p>
+
+        <div class="information is my-2 pb-2">
+        <!-- <h1 class="subtitle"><strong>Product Description</strong></h1> -->
+
+        <h3 class="title"></h3>
+
+        
+      </div>
+        <p><strong>Price: </strong>Rs. {{ product.price }}</p>
+
+        <div class="information is my-2 pb-2">
+        <!-- <h1 class="subtitle"><strong>Product Description</strong></h1> -->
+
+        <h3 class="title"></h3>
+        </div>
+
+        <div class="mb-1 d-flex">
+                  <label for="option-sm" class="d-flex mr-3 mb-3">
+                     <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-sm" name="shop-sizes"></span> <span class="d-inline-block text-black">S</span>
+                  </label>
+                  <label for="option-md" class="d-flex mr-3 mb-3">
+                     <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-md" name="shop-sizes"></span> <span class="d-inline-block text-black">M</span>
+                  </label>
+                  <label for="option-lg" class="d-flex mr-3 mb-3">
+                     <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-lg" name="shop-sizes"></span> <span class="d-inline-block text-black">L</span>
+                  </label>
+                  <label for="option-xl" class="d-flex mr-3 mb-3">
+                     <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-xl" name="shop-sizes"></span> <span class="d-inline-block text-black">XL</span>
+                  </label>
+                  </div>
+
       </div>
 
-      <p><strong>Price: </strong>Rs{{ product.price }}</p>
+      
+
+     
+      
 
       <div class="field has-addons mt-3">
         <div class="control">
@@ -67,7 +105,7 @@ export default {
           .then(response => {
             this.product = response.data
 
-            document.title = this.product.name + ' | Boutique'
+            document.title = this.product.name + ' | Amcart'
           })
           .catch(error => {
             console.log(error)
@@ -101,5 +139,10 @@ export default {
 </script>
 
 <style scoped>
-
+ 
+ img {
+  height:500px;
+  width:50%; 
+  margin-left: 20%;
+    }
 </style>

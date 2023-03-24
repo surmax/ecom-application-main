@@ -1,7 +1,7 @@
 <template>
   <nav class="breadcrumb" aria-label="breadcrumbs">
     <ul>
-      <li><router-link to="/">Boutique</router-link></li>
+      <li><router-link to="/">Amcart</router-link></li>
       <li class="is-active"><a href="#" aria-current="page">Sign up</a></li>
     </ul>
   </nav>
@@ -93,7 +93,7 @@ export default {
     }
   },
   mounted() {
-    document.title = 'Sign up | Boutique'
+    document.title = 'Sign up | Amcart'
   },
   methods: {
     submitForm() {

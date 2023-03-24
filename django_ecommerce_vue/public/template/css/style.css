@@ -50,8 +50,8 @@ a:hover {
 
 .offcanvas-menu .site-wrap {
     position: absolute;
-    height: 100%;
-    width: 100%;
+    height: 80%;
+    width: 80%;
     z-index: 2;
     overflow: hidden;
 }
@@ -1304,13 +1304,13 @@ a:hover {
 }
 
 .product-item.sm-height {
-    height: 200px; /*Discover Collection height */
+    height: 100px; /*Discover Collection height */
     padding: 2px;
 }
 
 .product-item.md-height {
     height: 30px;
-    padding: 4px;
+    padding: 2px;
 }
 
 .product-item img {
