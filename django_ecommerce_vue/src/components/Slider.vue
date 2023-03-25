@@ -16,9 +16,9 @@
     data() {
       return {
         images: [
-        require('@/assets/1.jpg'),
-        require('@/assets/2.jpg'),
-        require('@/assets/3.jpg')
+        require('@/assets/14.jpg'),
+        require('@/assets/12.jpg'),
+        require('@/assets/2.jpg')
         
           ],
         timer: null,
@@ -73,7 +73,7 @@
   }
   
   img {
-  height:300px;
+  height:420px;
   width:100%;
   margin-top: 0%;
   margin-left: 0%;

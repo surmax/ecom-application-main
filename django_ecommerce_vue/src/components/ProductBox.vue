@@ -6,10 +6,10 @@
             </figure>
             <div> 
                 <h3 class="is-size-4 has-text-light">{{ product.name }}</h3>
-                <p class="is-size-6 has-text-light">Rs {{ product.price }}</p>
+                <p class="is-size-4 has-text-light">Rs {{ product.price }}</p>
             </div>
 
-            <router-link v-bind:to="`/${product.get_absolute_url}`" class="button is-light mt-2" v-bind:product="product">View details</router-link>
+            <router-link v-bind:to="`/${product.get_absolute_url}`" class="button is-light mt-3" v-bind:product="product">View details</router-link>
         </div>
     </div>
 
@@ -30,9 +30,11 @@ export default {
     height:100%;
     width: 100%;
     max-width: max-content;
+    
  }
  #image {
     height: 15rem;
+    
     
  }
  /* .column3{

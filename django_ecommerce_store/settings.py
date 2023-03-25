@@ -26,7 +26,7 @@ SECRET_KEY = '123'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'product.nicewater-56bb0a4b.eastus2.azurecontainerapps.io', '127.0.0.1']
+ALLOWED_HOSTS = ['0.0.0.0', 'product.nicewater-56bb0a4b.eastus2.azurecontainerapps.io', '127.0.0.1','localhost']
 
 # Application definition
 

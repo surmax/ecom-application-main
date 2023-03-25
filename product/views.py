@@ -21,7 +21,7 @@ class LatestProductsList(APIView):
                 'description':each_product['description'], 'price':each_product['price'], 
                 'get_image':each_product['image'], 'get_thumbnail':each_product['thumbnail']})
 
-        return Response(products_refined[0:25])
+        return Response(products_refined[0:8])
 
 
 class CategoryDetail(APIView):

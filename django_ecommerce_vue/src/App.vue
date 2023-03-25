@@ -22,25 +22,22 @@
             <form method="get" action="/search">
               <div class="field has-addons">
                 <div class="control has-icons-left">
-                  <input type="text" class="input" placeholder="Search products..." name="query">
-                  <span class="icon is-left">
-                    <i class="fas fa-search"></i>
-                  </span>
+                  <input type="text is-size-4" class="input" placeholder="Search products..." name="query">
+  
                 </div>
-
               </div>
             </form>
           </div>
 
           <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
+            <a class="navbar-link is-size-5">
               Categories
             </a>
             <div class="navbar-dropdown">
-              <router-link to="/men" class="navbar-item">Men</router-link>
-              <router-link to="/women" class="navbar-item">Women</router-link>
+              <router-link to="/men" class="navbar-item is-size-6">Men</router-link>
+              <router-link to="/women" class="navbar-item is-size-6">Women</router-link>
               <hr class="navbar-divider">
-              <router-link to="/about-me" class="navbar-item">Contact</router-link>
+              <router-link to="/about-me" class="navbar-item is-size-6">Contact</router-link>
             </div>
           </div>
 
@@ -51,13 +48,17 @@
           <div class="buttons">
 
             <div class="navbar-item">
-              <router-link to="/cart" class="button is-info">
-                <!-- <span>Cart </span>
+              <router-link to="/cart" class="button is-primary is-size-5">
+               
+                <!-- <span>Cart </span> 
                 <span class="icon"><i class="fas fa-shopping-cart"></i></span> -->
-                Cart
-              </router-link>
+               Cart
+              </router-link>              
             </div>
-            <button @click="executeSignOutOrSignIn()" class="button is-primary">{{isAuthenticated ? 'Logout' : 'SignUp / LogIn'}}</button>
+
+          
+
+            <button @click="executeSignOutOrSignIn()" class="button is-primary is-size-5">{{isAuthenticated ? ('Logout ' + customerName + '! ' )   : 'Login'}}</button>
           </div>
         </div>
       </div>
@@ -93,12 +94,15 @@ export  default {
       this.user = authInfo.account;
       this.name = this.user.idToken.given_name;
       this.status = 'Logout';
+      this.customerName = authInfo.account.idToken.given_name;
     } else {
       // If the user is not authenticated and there is no user account in MSAL, update the state accordingly
       this.isAuthenticated = false;
       this.status = 'Log In/Sign Up';
     }
   },
+
+  
   
   data() {
     return {
@@ -135,7 +139,7 @@ export  default {
       const msalConfig = {
         auth: {
           clientId: '129b8bc7-de59-4904-bad3-1268f299e8d0',
-          redirectUri: 'https://ecommvue.z29.web.core.windows.net/',
+           redirectUri: 'http://localhost:8081/', //'https://ecommvue.z29.web.core.windows.net/',
           authority: 'https://NAGPecommB2c.b2clogin.com/NAGPecommB2c.onmicrosoft.com/B2C_1_SignupSignin',
           knownAuthorities: ['NAGPecommB2c.b2clogin.com'],
           navigateToLoginRequestUrl: true
@@ -188,7 +192,7 @@ export  default {
 </script>
 
 <style lang="scss">
-@import '../public/template/bulma';
+@import '../node_modules/bulma';
 
 .lds-dual-ring {
   display: inline-block;

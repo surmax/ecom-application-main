@@ -17,15 +17,15 @@
 
     <div class="column is-one-quarter">
       <div class="information is my-6 pb-6">
-        <h1 class="subtitle">Product Details</h1>
+        <!-- <h1 class="subtitle">Product Details</h1> -->
 
         <h1 class="title">  </h1>
 
-        <h3 class="title">{{ product.name }}</h3>
+        <h2 class="title">{{ product.name }}</h2>
 
          
 
-        <p>{{ product.description }}</p>
+        <p style="font-size:20px">{{ product.description }}</p>
 
         <div class="information is my-2 pb-2">
         <!-- <h1 class="subtitle"><strong>Product Description</strong></h1> -->
@@ -34,7 +34,7 @@
 
         
       </div>
-        <p><strong>Price: </strong>Rs. {{ product.price }}</p>
+        <p style="font-size:30px"><strong>Price: </strong>Rs. {{ product.price }}</p>
 
         <div class="information is my-2 pb-2">
         <!-- <h1 class="subtitle"><strong>Product Description</strong></h1> -->
@@ -42,48 +42,65 @@
         <h3 class="title"></h3>
         </div>
 
-        <div class="mb-1 d-flex">
-                  <label for="option-sm" class="d-flex mr-3 mb-3">
-                     <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-sm" name="shop-sizes"></span> <span class="d-inline-block text-black">S</span>
+        
+
+      
+
+      
+      
+        <div class="mb-3 d-flex">
+                  <label for="option-sm" class="d-flex mr-4 mb-2">
+                     <span class="d-inline-block mr-2" style="top:-1px; position: relative;"><input type="radio" id="option-sm" name="shop-sizes"></span> <span class="d-inline-block text-black">S</span>
                   </label>
                   <label for="option-md" class="d-flex mr-3 mb-3">
-                     <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-md" name="shop-sizes"></span> <span class="d-inline-block text-black">M</span>
+                     <span class="d-inline-block mr-2" style="top:-1px; position: relative;"><input type="radio" id="option-md" name="shop-sizes"></span> <span class="d-inline-block text-black">M</span>
                   </label>
                   <label for="option-lg" class="d-flex mr-3 mb-3">
-                     <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-lg" name="shop-sizes"></span> <span class="d-inline-block text-black">L</span>
+                     <span class="d-inline-block mr-2" style="top:-1px; position: relative;"><input type="radio" id="option-lg" name="shop-sizes"></span> <span class="d-inline-block text-black">L</span>
                   </label>
                   <label for="option-xl" class="d-flex mr-3 mb-3">
-                     <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-xl" name="shop-sizes"></span> <span class="d-inline-block text-black">XL</span>
+                     <span class="d-inline-block mr-2" style="top:-1px; position: relative;"><input type="radio" id="option-xl" name="shop-sizes"></span> <span class="d-inline-block text-black">XL</span>
                   </label>
                   </div>
 
+                  <stars :rate="90" :totalReviews="60"/>
+                 
+
       </div>
-
-      
-
-     
-      
-
-      <div class="field has-addons mt-3">
+      <div class="field has-addons mt-1">
         <div class="control">
           <input type="number" class="input" min="1" v-model="quantity">
         </div>
 
         <div class="control">
-          <a class="button is-info" @click="addToCart()">Add to cart</a>
+          <a class="button is-primary" @click="addToCart()">Add to cart</a>
         </div>
       </div>
+
+ 
+
     </div>
+
+    
   </div>
+
+  
 </div>
 </template>
 
 <script>
 import axios from 'axios'
 import { toast } from 'bulma-toast'
+import stars from './Stars';
 
 export default {
   name: "ProductView",
+  components: {
+   
+    stars,
+   
+  },
+
   data() {
     return {
       product: {},
@@ -142,7 +159,7 @@ export default {
  
  img {
   height:500px;
-  width:50%; 
-  margin-left: 20%;
+  width:40%; 
+  margin-left: 45%;
     }
 </style>
