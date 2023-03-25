@@ -1,4 +1,6 @@
-<h1 align="center">Django + Vue E-Commerce Store</h1>
+<h1 align="center">Django + Vue E-Commerce Storessss</h1>
+
+
 
 <p align="center">
 <img src="readme_assets\1.png" alt="Amcart HomePage">
