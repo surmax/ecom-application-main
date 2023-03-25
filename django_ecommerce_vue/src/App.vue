@@ -4,17 +4,18 @@
       <div class="navbar-brand">
         <router-link to="/" class="navbar-item">
           <img src="../public/boutique-logo.png" type="image" alt="logo">
-          <strong style="padding-left: 5px">  AMCART</strong>
+          <strong style="padding-left: 5px"> AMCART</strong>
         </router-link>
 
-        <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu" @click="showMobileMenu = !showMobileMenu">
+        <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu"
+          @click="showMobileMenu = !showMobileMenu">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
 
-      <div class="navbar-menu" id="navbar-menu" v-bind:class="{'is-active': showMobileMenu}">
+      <div class="navbar-menu" id="navbar-menu" v-bind:class="{ 'is-active': showMobileMenu }">
         <div class="navbar-start">
 
 
@@ -23,7 +24,16 @@
               <div class="field has-addons">
                 <div class="control has-icons-left">
                   <input type="text is-size-4" class="input" placeholder="Search products..." name="query">
-  
+                  <span class="icon is-left " id="search-button-navbar" data-v-41458b80=''>
+                  <svg
+                      xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                      viewBox="0 0 16 16" data-v-41458b80="">
+                      <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                        data-v-41458b80=""></path>
+                    </svg>
+                  </span>
+
                 </div>
               </div>
             </form>
@@ -44,38 +54,40 @@
         </div>
 
         <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
+          <div class="navbar-item">
+            <div class="buttons">
 
-            <div class="navbar-item">
-              <router-link to="/cart" class="button is-primary is-size-5">
-               
-                <!-- <span>Cart </span> 
+              <div class="navbar-item">
+                <router-link to="/cart" class="button is-primary is-size-5">
+
+                  <!-- <span>Cart </span> 
                 <span class="icon"><i class="fas fa-shopping-cart"></i></span> -->
-               Cart
-              </router-link>              
+                  Cart
+                </router-link>
+              </div>
+
+
+
+              <button @click="executeSignOutOrSignIn()" class="button is-primary is-size-5">{{ isAuthenticated ? ('Logout '
+                + customerName + '! ') : 'Login' }}</button>
             </div>
-
-          
-
-            <button @click="executeSignOutOrSignIn()" class="button is-primary is-size-5">{{isAuthenticated ? ('Logout ' + customerName + '! ' )   : 'Login'}}</button>
           </div>
         </div>
       </div>
-      </div>
     </nav>
 
-    <div class="is-loading-bar has-text-centered" v-bind:class="{'is-loading': $store.state.isLoading}">
+    <div class="is-loading-bar has-text-centered" v-bind:class="{ 'is-loading': $store.state.isLoading }">
       <div class="lds-dual-ring"></div>
     </div>
 
     <div class="section">
-      <router-view/>
+      <router-view />
     </div>
 
-    <div class="site-wrap">     
-     <my-footer></my-footer>
-   </div>
+    <div class="site-wrap">
+      <Newsletter/>
+      <my-footer></my-footer>
+    </div>
   </div>
 </template>
 
@@ -83,8 +95,9 @@
 import axios from "axios";
 import * as Msal from 'msal';
 import Footer from './components/Footer';
+import Newsletter from '@/components/Newsletter.vue'
 
-export  default {
+export default {
   created() {
 
     // Check if the user is authenticated by looking for the authentication information in local storage
@@ -102,8 +115,8 @@ export  default {
     }
   },
 
-  
-  
+
+
   data() {
     return {
       showMobileMenu: false,
@@ -122,15 +135,16 @@ export  default {
 
     const token = this.$store.state.token
     if (token) {
-        axios.defaults.headers.common['Authorization'] = "Token " + token
+      axios.defaults.headers.common['Authorization'] = "Token " + token
     } else {
-        axios.defaults.headers.common['Authorization'] = ""
+      axios.defaults.headers.common['Authorization'] = ""
     }
   },
-  components:{
- 
- 'my-footer':Footer
-},
+  components: {
+
+    'my-footer': Footer,
+    Newsletter
+  },
   mounted() {
     this.cart = this.$store.state.cart
   },
@@ -139,7 +153,7 @@ export  default {
       const msalConfig = {
         auth: {
           clientId: '129b8bc7-de59-4904-bad3-1268f299e8d0',
-           redirectUri: 'http://localhost:8081/', //'https://ecommvue.z29.web.core.windows.net/',
+          redirectUri: 'http://localhost:8081/', //'https://ecommvue.z29.web.core.windows.net/',
           authority: 'https://NAGPecommB2c.b2clogin.com/NAGPecommB2c.onmicrosoft.com/B2C_1_SignupSignin',
           knownAuthorities: ['NAGPecommB2c.b2clogin.com'],
           navigateToLoginRequestUrl: true
@@ -147,36 +161,36 @@ export  default {
       };
 
       const msalInstance = new Msal.UserAgentApplication(msalConfig);
-  if (this.isAuthenticated) {
-    // If the user is authenticated, sign them out
-    msalInstance.logout();
-    localStorage.removeItem('authToken');
-    this.isAuthenticated = false;
-    this.user = null;
-    this.name = null;
-    this.status = 'Log In/Sign Up';
-  } else {
-    // If the user is not authenticated, sign them in
-    const loginRequest = {
-      scopes: ['openid', 'profile'],
-    };
-    const response = await msalInstance.loginPopup(loginRequest);
-    if (response.account) {
-      localStorage.setItem('authToken', JSON.stringify(response))
-      this.isAuthenticated = true;
-      this.user = response.account;
-      this.name = this.user.idToken.given_name;
-      this.status = 'Logout';
+      if (this.isAuthenticated) {
+        // If the user is authenticated, sign them out
+        msalInstance.logout();
+        localStorage.removeItem('authToken');
+        this.isAuthenticated = false;
+        this.user = null;
+        this.name = null;
+        this.status = 'Log In/Sign Up';
+      } else {
+        // If the user is not authenticated, sign them in
+        const loginRequest = {
+          scopes: ['openid', 'profile'],
+        };
+        const response = await msalInstance.loginPopup(loginRequest);
+        if (response.account) {
+          localStorage.setItem('authToken', JSON.stringify(response))
+          this.isAuthenticated = true;
+          this.user = response.account;
+          this.name = this.user.idToken.given_name;
+          this.status = 'Logout';
 
-      const authInfo = {
-        isAuthenticated: this.isAuthenticated,
-        user: this.user
-      };
+          const authInfo = {
+            isAuthenticated: this.isAuthenticated,
+            user: this.user
+          };
+        }
+        location.reload()
+      }
     }
-    location.reload()
-  }
-}
-},
+  },
   computed: {
     cartTotalLength() {
       let totalLength = 0
@@ -199,6 +213,7 @@ export  default {
   width: 80px;
   height: 80px;
 }
+
 .lds-dual-ring:after {
   content: " ";
   display: block;
@@ -210,19 +225,23 @@ export  default {
   border-color: #ccc transparent #ccc transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
+
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
+
 .is-loading-bar {
   height: 0;
   overflow: hidden;
   -webkit-transition: all 0.1s;
   transition: all 0.1s;
+
   &.is-loading {
     height: 80px;
   }
@@ -234,4 +253,12 @@ export  default {
   margin: 0%;
   margin-left: 0%;
 }
+
+#search-button-navbar[data-v-41458b80] {
+    
+    
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
 </style>

@@ -1,111 +1,47 @@
 <template>
-  <div>
-      <transition-group name='fade' tag='div'>
-        <div v-for="i in [currentIndex]" :key='i'>
-          <img :src="currentImg" />
+  <section class="carousel">
+    <div id="heroControls" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#heroControls" class="active" data-slide-to="0"></li>
+        <li data-target="#heroControls" data-slide-to="1"></li>
+        <li data-target="#heroControls" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="img-fluid" src="@/assets/14.jpg" alt="First slide">
         </div>
-      </transition-group>
-      <a class="prev" @click="prev" href='#'>&#10094;</a>
-    <a class="next" @click="next" href='#'>&#10095;</a>
+        <div class="carousel-item">
+          <img class="img-fluid" src="@/assets/12.jpg" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="img-fluid" src="@/assets/2.jpg" alt="Third slide">
+        </div>
+      </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'Slider',
-    data() {
-      return {
-        images: [
-        require('@/assets/14.jpg'),
-        require('@/assets/12.jpg'),
-        require('@/assets/2.jpg')
-        
-          ],
-        timer: null,
-        currentIndex: 0,
-      }
-    },
-  
-    
-      mounted: function() {
-        this.startSlide();
-      },
-    
-       methods: {
-        startSlide: function() {
-          this.timer = setInterval(this.next, 4000);
-        },
-    
-    
-        next: function() {
-          this.currentIndex += 1
-        },
-        prev: function() {
-          this.currentIndex -= 1
-        }
-      },
-    
-      computed: {
-        currentImg: function() {
-          return this.images[Math.abs(this.currentIndex) % this.images.length];
-        }
-      }
-    
-  }
-  </script>
-  
-  <style>
-  /* .fade-enter-active,
-  .fade-leave-active {
-    transition: all 0.9s ease;
-    overflow: hidden;
-    visibility: visible;
-    position: absolute;
-    width:100%;
-    opacity: 1;
-  }
-   */
-  .fade-enter,
-  .fade-leave-to {
-    visibility: hidden;
-    width:100%;
-    opacity: 0;
-  }
-  
-  img {
-  height:420px;
-  width:100%;
-  margin-top: 0%;
-  margin-left: 0%;
-    }
-  
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 1%;
-    width: auto;
-    padding: 0px;
-    color: black;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.8s ease;
-    border-radius: 0 4px 4px 0;
-    text-decoration: none;
-    user-select: none;
-    
-  }
-  
-  /* Position the "next button" to the right */
-  .next {
-    right: 0;
-  }
-  
-  .prev {
-    left: 0;
-  }
-  
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.9);
-  }
-  </style>
+  </section>
+</template>
+
+<script>
+export default {
+  name: 'Carousel'
+}
+</script>
+
+<style scoped>
+.img-fluid {
+  width: 100%;
+  height: 450px;
+}
+
+ol.carousel-indicators li {
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 30px;
+  border: 0.6px solid black;
+}
+
+ol.carousel-indicators li.active {
+  background: #dbf0fa;
+}
+</style>
