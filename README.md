@@ -1,4 +1,4 @@
-<h1 align="center">Django + Vue E-Commerce Storessss</h1>
+<h1 align="center">Django + Vue E-Commerce Stores123</h1>
 
 
 
