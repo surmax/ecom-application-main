@@ -44,6 +44,7 @@
               Categories
             </a>
             <div class="navbar-dropdown">
+              <router-link to="/products" class="navbar-item is-size-6">All Products</router-link>
               <router-link to="/men" class="navbar-item is-size-6">Men</router-link>
               <router-link to="/women" class="navbar-item is-size-6">Women</router-link>
               <hr class="navbar-divider">

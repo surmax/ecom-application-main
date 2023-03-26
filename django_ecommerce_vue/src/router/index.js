@@ -12,6 +12,8 @@ import MyAccountView from "../views/MyAccountView";
 import CheckoutView from "../views/CheckoutView";
 import SuccessView from "../views/SuccessView";
 import AboutMeView from "../views/AboutMeView";
+import Products from "../views/Products";
+import Info from "../views/Info";
 
 const routes = [
   {
@@ -36,6 +38,11 @@ const routes = [
     path: '/:category_slug',
     name: 'Category',
     component: CategoryView
+  },
+  {
+    path: '/info',
+    name: 'Info',
+    component: Info
   },
   {
     path: '/search',
@@ -82,6 +89,11 @@ const routes = [
     path: '/about-me',
     name: 'AboutMe',
     component: AboutMeView,
+  }
+  ,{
+    path: '/products',
+    name: 'Products',
+    component: Products
   },
 ]
 

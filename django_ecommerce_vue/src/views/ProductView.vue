@@ -75,8 +75,19 @@
         <div class="control">
           <a class="button is-primary" @click="addToCart()">Add to cart</a>
         </div>
+
+      
+  
+     
+
       </div>
 
+      <div class="columns is-multiline">
+        <h1 style="color: white;" text-white>helllo124</h1>
+        <br>
+        <h1 style="color: white;" text-white>helllo124</h1>
+        <h1 style="color: white;" text-white>helllo124</h1>
+      </div>
  
 
     </div>
@@ -84,6 +95,8 @@
     
   </div>
 
+
+ 
   
 </div>
 </template>
